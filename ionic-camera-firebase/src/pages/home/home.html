@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Camera Firebase
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div style="display:flex; flex-direction:column;justify-content:center">
+    <button ion-button (click)="capture()">Camera</button>
+    <button ion-button (click)="accessGallery()">Load from the album</button>
+    <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+    <button ion-button color="danger" (click)="shareInfo()" > Share</button>
+  </div>
+</ion-content>
