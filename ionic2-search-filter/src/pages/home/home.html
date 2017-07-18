@@ -1,23 +1,74 @@
 <!-- <ion-header>
-  <ion-navbar>
+  <ion-navbar color="nesuku-logo-color1">
     <ion-title>
-      Ionic Blank
+      Edit audio file: {{ filename }}
     </ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
- -->
+  <ion-card>
+    <ion-card-content>
+      
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Name...</ion-label>
+          <ion-input type="text" [(ngModel)]="filename" ></ion-input>
+        </ion-item>
+      </ion-list><br>
+      
+      <div class="timer-in-me">
+        <ion-item class="no-bottom-border item">
+          <h1 text-center color="primary" class="timer-button timer-text">{{timer.displayTime}}</h1>
+        </ion-item>
+        <br>
+        <ion-row>
+          <ion-col col-2></ion-col>
+          
+          <ion-col col-3>
+            <button ion-button round large color="primary" *ngIf="timer.runTimer && timer.hasStarted" (click)="pauseTimer()">
+              <ion-icon name="pause"></ion-icon>
+            </button>
+            <button ion-button round large color="primary" *ngIf="!timer.runTimer && timer.hasStarted" (click)="resumeTimer()">
+              <ion-icon name="play"></ion-icon>
+            </button>
+            <button ion-button round large color="primary" *ngIf="!timer.hasStarted" (click)="startTimer()">
+              <ion-icon name="play"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-2></ion-col>
+          
+          
+          <ion-col col-3>
+            <button ion-button round large color="danger" [disabled]="!(!timer.runTimer && timer.hasStarted)" (click)="initTimer()">
+              <ion-icon name="refresh"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+      </div>
+    </ion-card-content>
+  </ion-card><br>
+  
+  <button ion-button icon-left block class="new-file-button" (click)="doSaveAlert()" color="nesuku-logo-color1" [disabled]="!(!timer.runTimer && timer.hasStarted)">
+    <ion-icon name="download"></ion-icon>
+    Save
+  </button>
+  
+  <br>
+  <button  ion-button icon-left full clear class="new-file-button" color="danger" (click)="doLeaveAlert()">
+    <ion-icon name="exit"></ion-icon>
+    Leave
+  </button>
+</ion-content> -->
+
+
+
+
 
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="nesuku-logo-color1">
     <ion-title>
-      Ionic Blank
+      Search
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -35,5 +86,11 @@
             {{item.title}}
         </ion-item>
     </ion-list>
+
+    <br>
+    <button  ion-button icon-left full clear class="new-file-button" color="danger" >
+      <ion-icon name="exit"></ion-icon>
+      Leave
+    </button>
  
 </ion-content>
